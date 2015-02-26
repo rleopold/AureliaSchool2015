@@ -12,6 +12,8 @@
     "dependencies": {
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.9.3",
       "aurelia-framework": "github:aurelia/framework@^0.8.6",
+      "aurelia-http-client": "github:aurelia/http-client@^0.5.3",
+      "aurelia-router": "github:aurelia/router@^0.5.6",
       "bootstrap": "github:twbs/bootstrap@^3.3.2"
     }
   }
