@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "name": "AureliaSchoolVS2015",
+  "private": true,
+  "devDependencies": {},
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot",
+      "lib": "wwwroot",
+      "packages": "wwwroot\\jspm_packages"
+    },
+    "dependencies": {
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.9.3",
+      "aurelia-framework": "github:aurelia/framework@^0.8.6",
+      "bootstrap": "github:twbs/bootstrap@^3.3.2"
+    }
+  }
+}
