@@ -1,15 +1,17 @@
 ﻿import {StudentService} from './studentService';
+import {Notify} from './notify';
 
 var url = window.location.origin + '/api/students';
 
 export class Students {
-    static inject() {return [StudentService];}
+    static inject() {return [StudentService, Notify];}
     
-    constructor(api) {
+    constructor(api, notify) {
         this.students = [];
         this.api = api;
         this.newStudent = {};
         this.showAdd = false;
+        this.notify = notify;
     }
 
     activate() {
@@ -23,18 +25,30 @@ export class Students {
     }
 
     addStudent(data) {
-        this.api.insertStudent(data).then(response => {
-            this.students.push(response.content);
-            this.showAdd = false;
-            this.newStudent = {};
-        });
+        this.api.insertStudent(data)
+            .then(response => {
+                this.students.push(response.content);
+                this.showAdd = false;
+                this.newStudent = {};
+                this.notify.success("Added a new student");
+            })
+            .catch(response => {
+                this.notify.error("Add student failed");
+                console.log(response);
+            });
     }
 
     deleteStudent(idx) {
         console.log(idx);
         var s = this.students[idx];
-        this.api.deleteStudent(s.Id).then(response => {
-            this.students.splice(idx,1);
-        })
+        this.api.deleteStudent(s.Id)
+            .then(response => {
+                this.students.splice(idx,1);
+                this.notify.success("Deleted a student")
+            })
+            .catch(response => {
+                this.notify.error("Failed to delete student");
+                console.log(response);
+            });
     }
 }

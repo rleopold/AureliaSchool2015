@@ -15,6 +15,7 @@ System.config({
     "aurelia-http-client": "github:aurelia/http-client@0.5.3",
     "aurelia-router": "github:aurelia/router@0.5.6",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
+    "toastr": "npm:toastr@2.0.4",
     "github:aurelia/binding@0.3.5": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.3",
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
