@@ -1,5 +1,5 @@
-﻿import {StudentService} from './studentService';
-import {Notify} from './notify';
+﻿import {StudentService} from './services/studentService';
+import {Notify} from './services/notify';
 
 var url = window.location.origin + '/api/students';
 
