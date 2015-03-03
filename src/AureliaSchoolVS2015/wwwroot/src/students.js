@@ -1,8 +1,6 @@
 ﻿import {StudentService} from './services/studentService';
 import {Notify} from './services/notify';
 
-var url = window.location.origin + '/api/students';
-
 export class Students {
     static inject() {return [StudentService, Notify];}
     
