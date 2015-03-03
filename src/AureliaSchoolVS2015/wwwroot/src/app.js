@@ -9,9 +9,9 @@ export class App {
             config.title = 'Aurelia';
             config.map([
               { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
-              { route: 'students', modeuleId: 'students', nav: true, title: 'Students'},
-              { route: 'teachers', modeuleId: 'teachers', nav: true, title: 'Teachers'},
-              { route: 'classes',  modeuleId: 'classes',  nav: true, title: 'Classes'}
+              { route: 'students', moduleId: 'students', nav: true, title: 'Students'},
+              { route: 'teachers', moduleId: 'teachers', nav: true, title: 'Teachers'},
+              { route: 'classes',  moduleId: 'classes',  nav: true, title: 'Classes'}
             ]);
         });
     }
