@@ -1,5 +1,5 @@
-﻿import {StudentService} from './services/studentService';
-import {Notify} from './services/notify';
+﻿import {StudentService} from '../services/studentService';
+import {Notify} from '../services/notify';
 
 export class Students {
     static inject() {return [StudentService, Notify];}

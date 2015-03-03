@@ -8,10 +8,10 @@ export class App {
         this.router.configure(config => {
             config.title = 'Aurelia';
             config.map([
-              { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
-              { route: 'students', moduleId: 'students', nav: true, title: 'Students'},
-              { route: 'teachers', moduleId: 'teachers', nav: true, title: 'Teachers'},
-              { route: 'classes',  moduleId: 'classes',  nav: true, title: 'Classes'}
+              { route: ['','welcome'],  moduleId: './modules/welcome',      nav: true, title:'Welcome' },
+              { route: 'students', moduleId: './modules/students', nav: true, title: 'Students'},
+              { route: 'teachers', moduleId: './modules/teachers', nav: true, title: 'Teachers'},
+              { route: 'classes',  moduleId: './modules/classes',  nav: true, title: 'Classes'}
             ]);
         });
     }
