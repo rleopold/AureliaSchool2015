@@ -1,0 +1,61 @@
+﻿<template>
+    <div class="row">
+        <section class="container col-8">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Teacher</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="class of classes">
+                        <td>${class.Id}</td>
+                        <td>${class.Title}</td>
+                        <td>${class.Location}</td>
+                        <td>${class.Teacher.Honorific} ${class.Teacher.FirstName} ${class.Teacher.LastName} ${class.Teacher.Suffix}</td>
+                        <td><button class="glyphicon glyphicon-trash " click.trigger="$parent.deleteClass($index)"></button></td>
+                    </tr>
+                </tbody>
+                <tfoot ng-show="!showAdd">
+                    <tr>
+                        <td><span class="glyphicon glyphicon-plus" click.trigger="clickAdd()"></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+    <div class="row">
+        <section class="container col-md-4">
+            <div class="panel panel-default" show.bind="showAdd">
+                <div class="panel-heading">Create New Class</div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" placeholder="Enter Title" value.bind="newClass.title">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control" id="location" placeholder="Enter Locatione" value.bind="newClass.Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="Teacher">Teacher</label>
+                            <select class="form-control" selected-item.bind="newClass.Teacher">
+                                <option repeat.for="teacher of teachers" value.bind="teacher.Id" model.bind="teacher">${teacher.Honorific + ' ' + teacher.FirstName + ' ' + teacher.LastName}</option>
+                            </select>
+                        </div>
+                        <button click.trigger="addClass(newClass)" class="btn btn-default">Submit</button>
+                        <button click.trigger="clickAdd()" class="btn btn-default">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

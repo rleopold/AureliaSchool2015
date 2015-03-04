@@ -39,20 +39,20 @@ export class Teachers {
             })
             .catch(response => {
                 console.log(response);
-                notify.error("Failed to add teacher.");
+                this.notify.error("Failed to add teacher.");
             });
     }
 
     deleteTeacher(idx) {
         var t = this.teachers[idx];
-        this.api.deleteTeacher(t)
+        this.api.deleteTeacher(t.Id)
             .then(response => {
-                this.teachers.splice(1,idx);
+                this.teachers.splice(idx,1);
                 this.notify.success("Deleted Teacher");
             })
             .catch(response => {
                 console.log(response);
-                notify.error("Failed to delete teacher.");
+                this.notify.error("Failed to delete teacher.");
             });
     }
 }
