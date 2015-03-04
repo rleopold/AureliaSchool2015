@@ -5,11 +5,15 @@ export class Students {
     static inject() {return [StudentService, Notify];}
     
     constructor(api, notify) {
-        this.students = [];
+        
         this.api = api;
+        this.notify = notify;
+
+
+        this.students = [];
         this.newStudent = {};
         this.showAdd = false;
-        this.notify = notify;
+        
     }
 
     activate() {
@@ -37,7 +41,6 @@ export class Students {
     }
 
     deleteStudent(idx) {
-        console.log(idx);
         var s = this.students[idx];
         this.api.deleteStudent(s.Id)
             .then(response => {

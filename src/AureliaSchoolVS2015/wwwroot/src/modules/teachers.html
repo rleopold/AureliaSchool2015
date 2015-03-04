@@ -1,0 +1,65 @@
+﻿<template>
+    <div class="row">
+        <section class="container col-8">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="teacher of teachers" click.trigger="showAdd()">
+                        <td>${teacher.Id}</td>
+                        <td>${teacher.Honorific} ${teacher.FirstName} ${teacher.LastName} ${teacher.Suffix}</td>
+                        <td>${teacher.Email}</td>
+                        <td><button class="glyphicon glyphicon-trash " click.trigger="$parent.deleteTeacher($index)"></button></td>
+                    </tr>
+                </tbody>
+                <tfoot show.bind="!showAdd">
+                    <tr>
+                        <td><span class="glyphicon glyphicon-plus" click.trigger="clickAdd()"></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+    <div class="row">
+        <section class="container col-md-4">
+            <div class="panel panel-default" show.bind="showAdd">
+                <div class="panel-heading">Create New Teacher</div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="firstName">Honorific</label>
+                            <input type="text" class="form-control" id="honorific" placeholder="Enter Honorific" value.bind="newTeacher.honorific">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" value.bind="newTeacher.firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" value.bind="newTeacher.lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Suffix</label>
+                            <input type="text" class="form-control" id="suffix" placeholder="Enter Suffix" value.bind="newTeacher.suffix">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Email</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter Email" value.bind="newTeacher.email">
+                        </div>
+                        <button click.trigger="addTeacher(newTeacher)" class="btn btn-default">Submit</button>
+                        <button click.trigger="clickAdd()" class="btn btn-default">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>
