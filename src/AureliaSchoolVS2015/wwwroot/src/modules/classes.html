@@ -48,6 +48,7 @@
                         <div class="form-group">
                             <label for="Teacher">Teacher</label>
                             <select class="form-control" selected-item.bind="newClass.Teacher">
+                                <option>Select Teacher...</option>
                                 <option repeat.for="teacher of teachers" value.bind="teacher.Id" model.bind="teacher">${teacher.Honorific + ' ' + teacher.FirstName + ' ' + teacher.LastName}</option>
                             </select>
                         </div>
