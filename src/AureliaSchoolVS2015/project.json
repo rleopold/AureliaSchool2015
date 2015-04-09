@@ -4,7 +4,7 @@
     "exclude": [
         "wwwroot"
     ],
-    "packExclude": [
+    "bundleExclude": [
         "node_modules",
         "bower_components",
         "**.kproj",
